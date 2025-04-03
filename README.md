@@ -2,8 +2,8 @@
 This project explores macro exploitation in penetration testing, demonstrating how malicious VBA macros can execute arbitrary code on a target system. By leveraging PowerShell commands, the attack can establish a reverse shell connection, highlighting the risks associated with macro-based threats. Designed strictly for educational and ethical hacking research.
 
 ## Included Files
-- [**lab_setup.md**](labSetup.md) - Guide to setting up the environment for testing the macro-based attack.
-- [**ResearchNotes.md**](ResearchNotes.md) - Explanation of how the macro executes the payload and the technical details behind it.
+- [**lab_setup.md**](lab_setup.md) - Guide to setting up the environment for testing the macro-based attack.
+- [**Research_notes.md**](Research_notes.md) - Explanation of how the macro executes the payload and the technical details behind it.
 
 - [**encodingPayload.md**](encodingPlayload.md) - Discusses Base64 encoding, AMSI, and bypassing real-time protection.
 # Reverse Shell via Malicious VBA Macros
