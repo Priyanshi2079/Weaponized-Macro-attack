@@ -4,7 +4,7 @@ This project explores macro exploitation in penetration testing, demonstrating h
 ## Included Files
 - [**labSetup.md**](labSetup.md) - Guide to setting up the environment for testing the macro-based attack.
 - [**technicalFlow.md**](technicalFlow.md) - Explanation of how the macro executes the payload and the technical details behind it.
-- [**demo.md**](demo.md) - Contains screenshots and a walkthrough of the reverse shell in action.
+
 - [**encodingPayload.md**](Codes/encodingPlayload.md) - Discusses Base64 encoding, AMSI, and bypassing real-time protection.
 # Reverse Shell via Malicious VBA Macros
 
