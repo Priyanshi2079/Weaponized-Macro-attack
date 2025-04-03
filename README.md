@@ -1,70 +1,37 @@
-# 🚀 Weaponized Macro Attack - Research & Demonstration
+# MacrosExploitation_ReverseShell
+This project explores macro exploitation in penetration testing, demonstrating how malicious VBA macros can execute arbitrary code on a target system. By leveraging PowerShell commands, the attack can establish a reverse shell connection, highlighting the risks associated with macro-based threats. Designed strictly for educational and ethical hacking research.
 
-## ⚠️ Ethical Disclaimer
-This project is for **educational and research purposes only**. The goal is to understand **how macro-based attacks work** to develop better **defensive measures**.  
-**Do not use this in unauthorized environments.** The author is not responsible for any misuse.
+## Included Files
+- [**labSetup.md**](labSetup.md) - Guide to setting up the environment for testing the macro-based attack.
+- [**technicalFlow.md**](technicalFlow.md) - Explanation of how the macro executes the payload and the technical details behind it.
+- [**demo.md**](demo.md) - Contains screenshots and a walkthrough of the reverse shell in action.
+- [**encodingPayload.md**](Codes/encodingPlayload.md) - Discusses Base64 encoding, AMSI, and bypassing real-time protection.
+# Reverse Shell via Malicious VBA Macros
 
----
+## Features
+- **Automated Execution:** The script triggers upon document open.
+- **PowerShell Payload Execution:** The macro runs a PowerShell command to establish a reverse shell connection.
+- **Obfuscation Techniques:** Optionally, Base64 encoding can be used to bypass basic security filters.
 
-## 🔥 Overview
-This repository documents a **weaponized macro attack** using VBA, demonstrating:  
-✅ Macro execution in **Microsoft Office**  
-✅ **Bypassing AMSI** and **Defender evasion**  
-✅ Establishing a **reverse shell** using PowerShell  
-✅ **Lateral movement** techniques  
-✅ **Detection & Defense** strategies
+## Setup Instructions
+1. Clone this repository to your local machine.
+2. Open the `.bas` file in a VBA editor within Microsoft Office.
+3. Modify the **ATTACKER_IP** and **PORT** values to match your listener setup.
+4. Save and execute the macro-enabled document.
+5. Start a Netcat listener on your attack machine:
+   ```bash
+   nc -lvnp <PORT>
+   ```
+6. Wait for the reverse shell connection.
 
----
+## Security Considerations
+- This project is intended for **educational and research purposes only**.
+- Unauthorized use of this technique is illegal and unethical.
+- Always test in an isolated environment with explicit permission.
 
-## 🏗️ **Lab Setup**
-**Environment:**  
-- Windows 10 (VM)  
-- Microsoft Office (Word/Excel)  
-- Kali Linux (Attacker Machine)  
-- Metasploit / PowerShell Empire  
+## Bonus: Base64 Encoding (Optional)
+For evading basic detection mechanisms, the PowerShell payload can be encoded in Base64. However, this step is not required for the project’s functionality. The encoded payload can help bypass certain security filters but should be used strictly for research purposes.
 
-**Tools Used:**  
-- VBA (Visual Basic for Applications)  
-- PowerShell scripts  
-- Metasploit for payload execution  
-
----
-
-## 🎯 **Attack Flow**
-1️⃣ **Macro Injection**  
-   - Malicious VBA code embedded inside an **Excel/Word document**  
-   - Trust Center settings adjusted to allow macro execution  
-
-2️⃣ **Payload Execution**  
-   - VBA code executes an **obfuscated PowerShell script**  
-   - Base64 encoding could be used to evade AMSI  
-
-3️⃣ **Reverse Shell Establishment**  
-   - Attacker listens on **Netcat/Metasploit**  
-   - Successful shell connection is established  
-
-4️⃣ **Privilege Escalation & Lateral Movement**  
-   - Exploit **SMB, RDP, or WinRM** to move across the network  
-   - Maintain persistence with registry or scheduled tasks  
-
----
-
-## 📸 **Screenshots**
-| **Stage** | **Screenshot** |
-|-----------|--------------|
-| Defender Blocking | ![Defender Blocking](./screenshots/defender_blocking.png) |
-| Reverse Shell Connection | ![Reverse Shell](./screenshots/rev_shell_connect.png) |
-| Macro Execution | ![Macro Code](./screenshots/VBA_code_editor.png) |
-| AMSI Bypass | ![AMSI Bypass](./screenshots/VBA_code_with_amsi_bypass.png) |
-
----
-
-## 🛡️ **Defensive Measures**
-✅ **Disable Macros by Default** in Microsoft Office  
-✅ **Use AMSI & Defender with Real-time Protection**  
-✅ **Application Whitelisting (AppLocker, WDAC)** to prevent unauthorized scripts  
-✅ **SIEM Monitoring** for abnormal PowerShell execution  
-✅ **Network Segmentation** to limit lateral movement  
-
-
+## Disclaimer
+This project is for educational purposes only. Unauthorized use of these techniques is illegal and unethical. Always use these methods in a controlled environment and with proper authorization.
 
